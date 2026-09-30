@@ -10,7 +10,7 @@ const websiteData = {
   },
 
   letters: [
-    createLetter(1, 'For All the Little Things', '', `Hi, Ava.
+    createLetter(1, 'For the biggest thank you', '', `Hi, Ava.
 
 Remember the messages that I wrote whenever I wanted to write? dhauweyweurhu. I don't even know if you still remember them, but, Sadly, nasira yung phone ko, and I don't have a backup
 
@@ -77,6 +77,7 @@ And I don't think you'll ever fully understand what that means to me.
 You gave me reasons to write again.
 
 so..
+
 
 Thank you for making me feel again.
 
@@ -299,8 +300,7 @@ I hope the gentleness you give to everyone else
 ay matutunan mo ring ibigay sa sarili mo.
 
 Because you deserve that too.`.split(/\n\n+/)),
-    createLetter(7, 'For the words you deserve to say.', '', `For the words you deserve to say.
-
+    createLetter(7, 'For the words you deserve to say.', '', `
 I hope you feel comfortable
 saying what you really think, Ava.
 
@@ -335,8 +335,7 @@ you don’t have to force them.
 
 Take your time.
 I’m here, and I’ll listen.`.split(/\n\n+/)),
-    createLetter(8, 'For the things that make you you.', '', `For the things that make you you.
-
+    createLetter(8, 'For the things that make you you.', '', `
 I hope you keep making time
 for the things you love.
 
@@ -423,8 +422,7 @@ Kahit gusto mo lang manahimik.
 You don’t always have to something to say.
 You can just be here,
 and I’ll be here too.`.split(/\n\n+/)),
-    createLetter(11, 'For the courage to try.', '', `For the courage to try.
-
+    createLetter(11, 'For the courage to try.', '', `
 I hope this year gives you the courage
 to try something you’ve always wanted to do, Ava.
 
@@ -604,8 +602,7 @@ sana may masasandalan ka rin.
 and im here
 
 always.
-
-for letter 16`.split(/\n\n+/)),
+`.split(/\n\n+/)),
     createLetter(17, 'For the Days You Don’t Know What to Do', '', `For the days when everything feels too heavy,
 when school gets overwhelming,
 when being a forensic science student means kailangan laging may aralin,
@@ -732,7 +729,7 @@ Thank you for being you, Ava. Thank you for being a safe place, for listening, f
 
 “There are things that I regret, except the first day that we’ve met.” - just because
 
-No matter where life takes us, I hope you know that I’ll always be somewhere cheering for you. Even from afar, I’ll still be here, your just because girly.
+ I hope you know that I’ll always be somewhere cheering for you. Even from afar, I’ll still be here, your just because girly.
 
 Happy 19th birthday, Ava.
 
