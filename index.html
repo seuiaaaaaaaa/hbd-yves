@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19 Letters for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-grain" aria-hidden="true"></div>
+  <div class="floating-pieces" id="floatingPieces" aria-hidden="true"></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <div class="web-corner web-top-left" aria-hidden="true"></div>
+  <div class="web-corner web-top-right" aria-hidden="true"></div>
+  <div class="web-corner web-bottom-right" aria-hidden="true"></div>
+
+  <header class="hero-section">
+    <div class="hero-scraps" aria-hidden="true">
+      <span class="scrap scrap-a"></span>
+      <span class="scrap scrap-b"></span>
+      <span class="scrap scrap-c"></span>
+      <span class="scrap scrap-d"></span>
+      <span class="spark spark-a"></span>
+      <span class="spark spark-b"></span>
+      <span class="spark spark-c"></span>
+      <span class="spark spark-d"></span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="hero-kicker">19 letters for you</p>
+
+      <figure class="hero-polaroid">
+        <span class="hero-polaroid-tape" aria-hidden="true"></span>
+        <div class="hero-polaroid-frame">
+          <img src="memwallpic/baby.jpg" alt="Baby Yves" id="heroBabyPhoto" onerror="this.closest('.hero-polaroid').classList.add('no-photo'); this.remove();">
+        </div>
+        <figcaption>little yves, 19 years in the making</figcaption>
+      </figure>
+
+      <h1>Happy 19th Birthday, Yves <span aria-hidden="true">&#10084;</span></h1>
+      <p class="hero-text">
+        I want you to read the things I could never fully say in one
+        letter. So I wrote nineteen:)
+      </p>
+
+      <div class="hero-envelope-wrap">
+        <div class="hero-actions">
+          <button class="hero-button" id="openLettersBtn" type="button">Open My Letters</button>
+          <button class="hero-button hero-button-secondary" id="playAudioBtn" type="button">Play Audio</button>
+        </div>
+        <p class="audio-caption">Plays "With a Smile" while reading.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell" id="lettersPage">
+    <div class="page-controls">
+      <div class="page-controls-top">
+        <button class="back-home-button" id="backHomeBtn" type="button">Back to First Page</button>
+      </div>
+      <div class="section-tabs" id="sectionTabs">
+        <button class="section-tab-button is-active" data-panel="letters" type="button">Letters</button>
+        <button class="section-tab-button" data-panel="memory" type="button">Memory Wall</button>
+        <button class="section-tab-button" data-panel="notes" type="button">Why You're Special</button>
+      </div>
+    </div>
+
+    <section class="content-section letters-section is-active" id="lettersSection" data-panel="letters">
+      <div class="letters-desk">
+        <div class="desk-note">
+          <p>Take you time, wuv!</p>
+        </div>
+        <div class="letters-grid" id="lettersGrid"></div>
+      </div>
+    </section>
+
+    <section class="content-section memory-section" id="memorySection" data-panel="memory">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">memory wall</p>
+          <h2>The little proof that distance still made room for real memories.</h2>
+        </div>
+      </div>
+
+      <div class="memory-board" id="memoryBoard"></div>
+    </section>
+
+    <section class="content-section notes-section" id="notesSection" data-panel="notes">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">why you're special</p>
+          <h2>Tap the notes and let them unfold.</h2>
+          <p class="section-copy">
+            These are the small reasons that added up until you became one of the most important
+            people in my life.
+          </p>
+        </div>
+      </div>
+
+      <div class="notes-grid" id="notesGrid"></div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <p>Happy Birthday, Ava!</p>
+  </footer>
+
+  <div class="letter-modal hidden" id="letterModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-scene">
+      <button class="close-modal" id="closeLetterBtn" type="button" aria-label="Close letter">Close</button>
+
+      <div class="modal-progress" id="modalProgress"></div>
+
+      <div class="envelope-stage" id="envelopeStage">
+        <div class="modal-envelope">
+          <div class="modal-envelope-back"></div>
+          <div class="modal-flap"></div>
+          <div class="modal-envelope-front"></div>
+          <div class="modal-seal" id="modalSeal"></div>
+        </div>
+
+        <article class="letter-paper" id="letterPaper">
+          <div class="paper-tape tape-top-left"></div>
+          <div class="paper-tape tape-top-right"></div>
+          <div class="paper-tape tape-bottom-left"></div>
+          <div class="paper-accent paper-accent-web" aria-hidden="true"></div>
+          <div class="paper-accent paper-accent-burst" aria-hidden="true"></div>
+
+          <div class="paper-header">
+            <p class="paper-date" id="modalLetterDate"></p>
+            <span class="paper-badge" id="modalLetterNumber"></span>
+          </div>
+
+          <h3 class="paper-title" id="modalLetterTitle"></h3>
+          <div class="paper-body" id="modalLetterBody"></div>
+
+          <div class="final-letter-panel hidden" id="finalLetterPanel">
+            <p class="final-small">.</p>
+            <p class="final-main">
+            </p>
+            <p class="final-end":)&#10084;</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="modal-nav">
+        <button class="nav-button" id="prevLetterBtn" type="button">Previous letter</button>
+        <button class="nav-button" id="nextLetterBtn" type="button">Next letter</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
