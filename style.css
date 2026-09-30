@@ -1935,8 +1935,17 @@ body.show-letters .page-footer {
     padding: 1.3rem 1rem 1.2rem;
   }
 
+  .letter-modal:not(.focus-letter-view) .paper-body {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
   .letter-modal.focus-letter-view .modal-nav {
     display: flex;
+    position: sticky;
+    left: auto;
+    right: auto;
+    bottom: 0;
+    padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom));
   }
 
   .modal-nav {
@@ -1945,7 +1954,7 @@ body.show-letters .page-footer {
     right: 0;
     bottom: 0;
     z-index: 12;
-    padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom));
+    padding: 0.55rem 0.75rem calc(0.2rem + env(safe-area-inset-bottom));
     background: linear-gradient(180deg, rgba(172, 150, 147, 0), rgba(172, 150, 147, 0.88) 42%, rgba(172, 150, 147, 0.94) 100%);
   }
 

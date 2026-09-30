@@ -1142,6 +1142,8 @@ function openLetter(index, playAnimation) {
 
   fillLetterContent(letter);
   setLetterFocusView(false);
+  modalLetterBody.scrollTop = 0;
+  letterModal.scrollTop = 0;
 
   letterModal.classList.remove('hidden');
   letterModal.setAttribute('aria-hidden', 'false');
