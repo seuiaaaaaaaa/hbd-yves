@@ -1257,14 +1257,13 @@ function playBackgroundSong() {
 
   stopFinalSong();
 
-  const playPromise = state.backgroundAudio.play();
-  if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => {
-      console.warn('Background music playback was blocked or could not start yet.');
-    });
-  }
-
-  fadeAudioTo(state.backgroundAudio, websiteData.music.backgroundVolume, 700, 'backgroundFadeFrame');
+  playAudioWithFade(
+    state.backgroundAudio,
+    websiteData.music.backgroundVolume,
+    'backgroundFadeFrame',
+    () => state.backgroundMusicEnabled && !letterModal.classList.contains('final-letter'),
+    'Background music playback was blocked or could not start yet.'
+  );
 }
 
 function pauseBackgroundSong() {
@@ -1283,14 +1282,13 @@ function playFinalSong() {
   pauseBackgroundSong();
   state.finalAudio.currentTime = 0;
 
-  const playPromise = state.finalAudio.play();
-  if (playPromise && typeof playPromise.catch === 'function') {
-    playPromise.catch(() => {
-      console.warn('Final letter music playback was blocked or could not start yet.');
-    });
-  }
-
-  fadeAudioTo(state.finalAudio, websiteData.music.finalVolume, 700, 'finalFadeFrame');
+  playAudioWithFade(
+    state.finalAudio,
+    websiteData.music.finalVolume,
+    'finalFadeFrame',
+    () => letterModal.classList.contains('final-letter'),
+    'Final letter music playback was blocked or could not start yet.'
+  );
 }
 
 function stopFinalSong() {
@@ -1303,6 +1301,25 @@ function stopFinalSong() {
 
 function updateAudioButton() {
   playAudioBtn.textContent = state.backgroundMusicEnabled ? 'Pause Audio' : 'Play Audio';
+}
+
+function playAudioWithFade(audio, targetVolume, frameKey, canContinue, warningMessage) {
+  const playPromise = audio.play();
+  if (!playPromise || typeof playPromise.then !== 'function') {
+    fadeAudioTo(audio, targetVolume, 700, frameKey);
+    return;
+  }
+
+  playPromise.then(() => {
+    if (!canContinue()) {
+      audio.pause();
+      return;
+    }
+
+    fadeAudioTo(audio, targetVolume, 700, frameKey);
+  }).catch(() => {
+    console.warn(warningMessage);
+  });
 }
 
 function toggleLetterFocusView() {
